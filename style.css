@@ -1,0 +1,329 @@
+* {                           /* 全称セレクター：全ての要素を選択 */
+    margin: 0;
+    padding: 0;               /* 余計な余白をなくす */
+    box-sizing: border-box;   /* 枠線の大きさもdivタブの%に含める */
+}
+
+body {
+    height: 100vh;            /* ブラウザの画面高さ最大 */
+    background-image: url("https://drive.google.com/uc?export=view&id=17jfJKJm3cLtt3N_bTe7Mqr44N1kvsgwH");
+}
+
+.snow-container {
+    background-image: url("https://drive.google.com/uc?export=view&id=1g2PElIPVFJWbNsuNPHZNlemZycBdXY7w");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;              /* cover：イメージ全体を表示 */
+    position: relative;                  /* snowの親(基準位置)として指定 */
+    overflow: hidden;                    /* はみ出た部分は隠す */
+}
+
+.snow-container::after {                 /* イメージ図に薄黒フィルター追加 */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.1;
+}
+
+.snow {
+    background-color: white;
+    border-radius: 50%;                  /* 丸み */
+    position: absolute;                  /* snow-containerを絶対位置指定 */
+    animation: snowFall 15s linear;      /* linear：等しい速度で */
+    z-index: 3;
+}
+
+@keyframes snowFall {                 /* @keyframes：animationの中間ステップを制御する */
+    0% {                              /* 開始時 */
+        opacity: 0;                   /* 透明度 */
+        top: 0;                       /* 始まりの位置 */
+        transform: translateX(2px);   /* X方向に表示位置を変更 */
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+    20% {
+        transform: translateX(2px);
+    }
+    30% {
+        transform: translateX(-2px);
+    }
+    40% {
+        transform: translateX(2px);
+    }
+    50% {
+        transform: translateX(-2px);
+    }
+    60% {
+        transform: translateX(2px);
+    }
+    70% {
+        transform: translateX(-2px);
+    }
+    80% {
+        transform: translateX(2px);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+    100% {              /* 終了時 */
+        opacity: 0;
+        top: 100vh;     /* 終わりの位置 */
+    }
+}
+
+.menubar {
+    position: absolute;
+    background-color: #9f98ff96;
+    text-align: right;
+    z-index: 5;
+    left: -38%;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.menubar ul li {
+    list-style-type: none;
+    width: 500px;   /* 各liタグの横幅 */
+    padding: 2em;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px dotted white;
+}
+
+.menubar ul li a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+.menubar ul li:hover {
+    background-color: #6459f996;
+}
+
+.menubar ul li.active {
+    background-color: #c77a46a2;
+}
+
+@media screen and (max-width: 2000px) {   /* 1500pxを下回った時 */
+    .content img {
+        width: 350px;
+        height: 300px;
+        margin: 2em;
+    }
+}
+
+@media screen and (max-width: 1800px) {   /* 1330pxを下回った時 */
+    .content img {
+        width: 295px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 1700px) {   /* 1330pxを下回った時 */
+    .content img {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 1600px) {   /* 1330pxを下回った時 */
+    .content img {
+        width: 250px;
+        height: 200px;
+        margin: 1em;
+        margin-left: 7%;
+    }
+    .menubar ul li {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .content img {
+        width: 180px;
+        height: 150px;
+        margin: 0 5em 0 0;
+        margin-left: 18%;
+    }
+    .menubar ul li {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .menubar ul li {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .menubar ul li {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content img {
+        width: 150px;
+        height: 120px;
+        margin-top: 10%;
+        margin-left: 25%;
+        flex-direction: column;
+    }
+    .menubar ul li {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .menubar ul li {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .menubar ul li {
+        width: 180px;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    margin-left: 4%;
+    width: 96%;
+    height: 100vh;
+    left: -100%;
+    list-style: none;
+    position: absolute;
+    transition: 2s;
+}
+
+.MDN.active {
+    left: 0%;
+}
+
+.SPO.active {
+    left: 0%;
+}
+
+.position {
+    z-index: 4;
+    position: relative;
+}
+
+.content img {
+    object-fit: cover;       /* 指定の大きさ以上は自動でトリミング */
+    filter: grayscale(100);
+    transition: 0.7s;
+    border-radius: 20%
+}
+
+.content img:hover {
+    filter: grayscale(0);
+    transform: scale(1.2);   /* 大きさを変える */
+}
+
+.navigation {
+    height: 100vh;
+    width: 70px;
+    position: relative;                  /* 移動する時の基準が元あった位置になる */
+    background-color: #4d4c86;
+    box-shadow: 10px 0 0 #c77946;      /* x方向 | y方向 | ぼかし | 色 */
+    border-left: 10px solid #4d4c86;   /* solid：実線 */
+    overflow-x: hidden;                  /* 水平方向にはみ出た文字は見えない */
+    transition: all 0.25s;                /* プロパティ名 | 所要時間 */
+    z-index: 6;
+}
+
+.navigation:hover {       /* ホバー(カーソル重ね時、処理が実行されること)した時 */
+    width: 300px;
+}
+
+.navigation ul {          /* 箇条書き */
+    position: absolute;   /* div.navigationを親として絶対位置と指定 */
+    top: 0;               /* 要素が起点(上)からどれだけ離れているか */
+    left: 0;              /* 要素が起点(左)からどれだけ離れているか */
+    width: 100%;          /* div.navigationの幅と同じ100% */
+    padding-top: 20px;    /* 上からの余白 */
+    padding-left: 10px;   /* 左からの余白 */
+}
+
+.navigation ul li {        /* リスト */
+    list-style: none;      /* ・を消すことができる */
+    display: block;        /* インライン要素をブロック要素に変更 */
+    width: 100%;
+    position: relative;
+    border-radius: 15px;   /* 丸み */
+}
+
+.navigation ul li:hover {
+    background-color: #353463;
+}
+
+.navigation ul li.list.active {
+    background-color: #c77946;
+}
+
+.navigation ul li.list.active::before {   /* 選択要素の最初の子として擬似要素生成 */
+    content: "";
+    position: absolute;                   /* liタブがrelativeなので、liタブ(親)基準 */
+    width: 30px;
+    height: 30px;
+    top: -30px;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #c77946;
+}
+
+.navigation ul li.list.active::after {   /* 選択要素の最後の子として擬似要素生成 */
+    content: "";
+    position: absolute;                  /* liタブがrelativeなので、liタブ(親)基準 */
+    width: 30px;
+    height: 30px;
+    top: 60px;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #c77946;
+}
+
+.navigation ul li a {
+    text-decoration: none;   /* 下線なし */
+    color: white;
+    width: 100%;
+    display: flex;           /* 親(a)に対して子(span)を横並びにする */
+    position: relative;
+}
+
+.navigation ul li a .icon {
+    display: block;          /* ブロック要素にすることで幅を指定できる */
+    position: relative;
+    top: 15px;
+    min-width: 45px;         /* 要素の最小幅を設定 */
+    height: 60px;
+    line-height: 70px;       /* 行ボックスの最小高さを指定 */
+    text-align: center;      /* ブロック要素の水平方向中央 */
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.5em;        /* 指定している文字の大きさによって変化する相対単位(10px指定だと1emは10px) */
+}
+
+.navigation ul li a .title {
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;     /* 自動で折り返さない */
+}
